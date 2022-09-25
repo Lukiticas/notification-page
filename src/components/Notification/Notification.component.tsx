@@ -36,7 +36,10 @@ const NotificationElement = ({
       onClick={() => handleReadNotification(data.id)}
       read={data.read}
     >
-      <NoteProfileIcon src={data.userIcon as string} alt="" />
+      <NoteProfileIcon
+        src={data.userIcon as string}
+        alt={`${data.user} icon`}
+      />
       <NoteContentBody>
         <TextContentDescription>
           <TextDescription>
