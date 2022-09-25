@@ -12,6 +12,8 @@ This is a solution to the [Notifications page challenge on Frontend Mentor](http
 
 ## Overview
 
+This was a very good challenge, got to exercicise some planning before the actual coding, it was interesting!
+
 ### The challenge
 
 Users should be able to:
@@ -23,7 +25,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./images/desktop-preview.jpg)
 
 ### Links
 
