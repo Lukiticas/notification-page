@@ -185,6 +185,7 @@ const AppFooter = styled.footer`
   padding: 2rem;
   padding-top: 0;
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
 `;

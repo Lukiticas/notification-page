@@ -1,3 +1,4 @@
+import { useState } from "react";
 import notification, { notifications } from "../../notification";
 import getDate from "../../utils/getDate";
 import {
@@ -23,19 +24,21 @@ const NotificationElement = ({
   data,
   handleReadNotification,
 }: NotificationElementProps) => {
-  const type = notification.types[data.type];
+  const [hasUserClicked, sethasUserClicked] = useState(false);
   const [dateNumber, dateSuffix] = getDate(data.createdAt);
 
+  const type = notification.types[data.type];
   const date = `${dateNumber} ${dateSuffix}${
     dateNumber > 1 && dateSuffix !== "m" ? "s" : ""
   }`;
 
+  const handleClick = () => {
+    handleReadNotification(data.id);
+    sethasUserClicked((old) => !old);
+  };
+
   return (
-    <NoteBodySection
-      onClick={() => handleReadNotification(data.id)}
-      read={data.read}
-      tabIndex={0}
-    >
+    <NoteBodySection onClick={handleClick} read={data.read} tabIndex={0}>
       <NoteProfileIcon
         src={data.userIcon as string}
         alt={`${data.user} icon`}
@@ -53,7 +56,6 @@ const NotificationElement = ({
             </TextDescriptionP>
             <TextDescriptionSmall>{date}</TextDescriptionSmall>
           </TextDescription>
-
           {data.PreviewImg && (
             <NoteContentIcon
               src={data.PreviewImg}
@@ -62,7 +64,7 @@ const NotificationElement = ({
           )}
         </TextContentDescription>
 
-        {data.PreviewText && (
+        {data.PreviewText && hasUserClicked && (
           <NotePreviewText>
             <p>{data.PreviewText}</p>
           </NotePreviewText>
