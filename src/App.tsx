@@ -66,7 +66,7 @@ function App() {
         <AppHeader>
           <HeaderTitle>Notifications</HeaderTitle>
           <HeaderCount>{unreadNots.length}</HeaderCount>
-          <HeaderButton onClick={handleMakeAllRead}>
+          <HeaderButton type="button" onClick={handleMakeAllRead}>
             Mark all as read
           </HeaderButton>
         </AppHeader>

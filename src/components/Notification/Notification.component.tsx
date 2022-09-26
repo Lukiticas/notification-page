@@ -11,7 +11,6 @@ import {
   TextDescription,
   TextDescriptionP,
   TextDescriptionSmall,
-  ReadBullet,
   NotePreviewText,
 } from "./Notification.styles";
 
@@ -49,7 +48,6 @@ const NotificationElement = ({
                 {data.target ? data.target : null}
               </NoteTargetName>
             </TextDescriptionP>
-
             <TextDescriptionSmall>{date}</TextDescriptionSmall>
           </TextDescription>
 
@@ -66,7 +64,6 @@ const NotificationElement = ({
             <p>{data.PreviewText}</p>
           </NotePreviewText>
         )}
-        {!data.read && <ReadBullet>🔴</ReadBullet>}
       </NoteContentBody>
     </NoteBodySection>
   );

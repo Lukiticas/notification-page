@@ -6,6 +6,7 @@ interface sectionProps {
 
 const NoteBodySection = styled.section<sectionProps>`
   display: flex;
+  position: relative;
 
   width: 100%;
   padding: 1rem;
@@ -24,8 +25,24 @@ const NoteBodySection = styled.section<sectionProps>`
       color: ${(props) => props.theme.colors.wrd600};
     }
   }
+
   .rp {
     color: ${(props) => props.theme.colors.wrd600};
+  }
+
+  &::after {
+    display: ${(props) => (props.read ? "none" : "block")};
+    content: "";
+    background-color: ${(props) => props.theme.colors.acc800};
+
+    width: 1rem;
+    height: 1rem;
+
+    position: absolute;
+    top: -0.2rem;
+    right: -0.2rem;
+
+    border-radius: 100vw;
   }
 
   &:hover {
@@ -103,12 +120,6 @@ const TextDescriptionSmall = styled.small`
   color: ${(props) => props.theme.colors.wrd400};
 `;
 
-const ReadBullet = styled.span`
-  position: absolute;
-  top: -23px;
-  right: -20px;
-`;
-
 const NotePreviewText = styled.div`
   cursor: pointer;
   color: ${(props) => props.theme.colors.wrd600};
@@ -124,7 +135,6 @@ const NotePreviewText = styled.div`
   }
 `;
 export {
-  ReadBullet,
   TextDescriptionSmall,
   TextDescriptionP,
   TextDescription,
