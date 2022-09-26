@@ -35,8 +35,8 @@ const NoteBodySection = styled.section<sectionProps>`
     content: "";
     background-color: ${(props) => props.theme.colors.acc800};
 
-    width: 1rem;
-    height: 1rem;
+    width: 0.6rem;
+    height: 0.6rem;
 
     position: absolute;
     top: -0.2rem;
@@ -80,7 +80,9 @@ const TextContentDescription = styled.div`
   }
 `;
 
-const NoteName = styled.a`
+const NoteName = styled.h2`
+  margin-right: 0.5ch;
+  display: inline;
   text-decoration: none;
   font-weight: 800;
   color: ${(props) => props.theme.colors.wrd800};
@@ -91,12 +93,12 @@ const NoteName = styled.a`
   }
 `;
 
-const NoteTargetName = styled.a`
+const NoteTargetName = styled.span`
+  margin-inline: 0.5ch;
   font-weight: 800;
   font-size: 1rem;
   text-decoration: none;
-
-  &:hover {
+  text &:hover {
     color: ${(props) => props.theme.colors.acc900};
   }
 `;
@@ -114,7 +116,7 @@ const NoteContentIcon = styled.img`
   border-radius: 0.5rem;
 `;
 
-const TextDescriptionP = styled.p``;
+const TextDescriptionP = styled.div``;
 
 const TextDescriptionSmall = styled.small`
   color: ${(props) => props.theme.colors.wrd400};

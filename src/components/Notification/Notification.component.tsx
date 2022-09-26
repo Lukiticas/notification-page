@@ -34,6 +34,7 @@ const NotificationElement = ({
     <NoteBodySection
       onClick={() => handleReadNotification(data.id)}
       read={data.read}
+      tabIndex={1}
     >
       <NoteProfileIcon
         src={data.userIcon as string}
@@ -43,10 +44,12 @@ const NotificationElement = ({
         <TextContentDescription>
           <TextDescription>
             <TextDescriptionP>
-              <NoteName href="#">{data.user}</NoteName> {type}
-              <NoteTargetName href="#" className={data.type}>
-                {data.target ? data.target : null}
-              </NoteTargetName>
+              <NoteName>{data.user}</NoteName> {type}
+              {data.target && (
+                <NoteTargetName className={data.type}>
+                  {data.target}
+                </NoteTargetName>
+              )}
             </TextDescriptionP>
             <TextDescriptionSmall>{date}</TextDescriptionSmall>
           </TextDescription>
@@ -54,7 +57,7 @@ const NotificationElement = ({
           {data.PreviewImg && (
             <NoteContentIcon
               src={data.PreviewImg}
-              alt={data.target as string}
+              alt={data.user + "preview"}
             />
           )}
         </TextContentDescription>
