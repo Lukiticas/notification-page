@@ -34,7 +34,7 @@ const NotificationElement = ({
     <NoteBodySection
       onClick={() => handleReadNotification(data.id)}
       read={data.read}
-      tabIndex={1}
+      tabIndex={0}
     >
       <NoteProfileIcon
         src={data.userIcon as string}
